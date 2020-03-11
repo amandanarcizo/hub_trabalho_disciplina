@@ -3,8 +3,10 @@ title: "Relatorio Final - Projetos de Análise de Dados Usando R"
 author: "Amanda Narcizo"
 date: "05/03/2020"
 output:
-  word_document: default
-  html_document: default
+  word_document: 
+    reference_docx: Docs/template_intro.docx
+csl: Citation/ecology.csl  
+bibliography: Citation/TDR.bib 
 ---
 
 ```{r setup, include=FALSE}
@@ -12,22 +14,22 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## INTRODUÇÃO 
-  Espécies invasoras, segundo apresentado por Moro et al. (2012), são
+  Espécies invasoras, segundo apresentado por @moro_alienigenas_2012, são
 espécies – que ocorrem naquela região biogeográfica graças ao
 transporte humano intencional ou não – que conseguem se reproduzir e aumentar seu
 tamanho populacional estabelecendo-se no local e também se dispersando de forma
 eficiente. 
-  Essas espécies podem muitas vezes promover impactos negativos nos ecossistemas eos quais elas chegam, como apontam diversos estudos, tais como: consequências como alterações na estrutura e composição da comunidade, na ciclagem de nutrientes, no acúmulo de serapilheira e de biomassa (HARDMAN et al.,2012; MAROD et al.,2012). Além disso, há estudos que também apontam que essas espécies podem promover a redução da biodiversidade e impactos socioeconômicos negativos (GILBERT & LEVINE, 2012; BELLINGHAM et al., 2018; REASER etal., 2007).
+  Essas espécies podem muitas vezes promover impactos negativos nos ecossistemas eos quais elas chegam, como apontam diversos estudos, tais como: consequências como alterações na estrutura e composição da comunidade, na ciclagem de nutrientes, no acúmulo de serapilheira e de biomassa (@hardman_predicting_2012, @marod_uences_nodate). Além disso, há estudos que também apontam que essas espécies podem promover a redução da biodiversidade e impactos socioeconômicos negativos (@gilbert_plant_2013, @bellingham_endemic_2018, @reaser_ecological_2007).
   Embora essas consequências sejam citadas, a elucidação insuficiente da
 influência de espécies exóticas invasoras nas comunidades pode acarretar situações
 onde grandes esforços de erradicação das mesmas culminam em consequências
-diretas ou indiretas ainda maiores para o ecossistema (BERGSTROM et al., 2009).
+diretas ou indiretas ainda maiores para o ecossistema (@bergstrom_indirect_2009).
 Consequências tais como a indução de invasões secundárias por outras espécies
-exóticas invasoras após iniciativas de manejo (GONZÁLEZ et al.,2017).
+exóticas invasoras após iniciativas de manejo (@gonzalez_secondary_2017).
   Dessa forma, antes de prejulgar o impacto da espécie e propor iniciativas de
 manejo é imprescindível investigar qual o papel daquela espécie no ecossistema em
 estudo, para que medidas de conservação eficientes possam ser tomadas e recursos
-não sejam desperdiçados (DAVIS et al., 2011). A partir desta perspectiva a seguinte
+não sejam desperdiçados (@davis_dont_2011). A partir desta perspectiva a seguinte
 pergunta é proposta: As espécies exóticas invasoras aqui estudadas estão promovendo
 alterações negativas na regeneração natural de espécies nativas em florestas de
 restinga? 
@@ -36,22 +38,35 @@ restinga?
 
 ### ÁREA DE ESTUDO
  
-   O estudo foi realizado na unidade de conservação Parque Natural Municipal Bosque da Barra (54 ha), localizado na cidade do Rio de Janeiro. Nesta área há a predominância da formação vegetacional de restingas, que são ambientes geologicamente recentes,sendo formadas por depósitos marinhos quaternários que criaram barreiras ao longo dacosta, aprisionando lagunas e formando cordões arenosos paralelos e depressões entre eles (LAMEGO 1946).
+   O estudo foi realizado na unidade de conservação Parque Natural Municipal Bosque da Barra (54 ha), localizado na cidade do Rio de Janeiro. Nesta área há a predominância da formação vegetacional de restingas, que são ambientes geologicamente recentes,sendo formadas por depósitos marinhos quaternários que criaram barreiras ao longo dacosta, aprisionando lagunas e formando cordões arenosos paralelos e depressões entre eles.
   
-![Mapa do Parque Natural Municipal Bosque da Barra, Rio de Janeiro, RJ.](Figs/figura02.png)
+![Mapa do Parque Natural Municipal Bosque da Barra, Rio de Janeiro, RJ. @smac_prefeitura_2014](Figs/figura02.png)
 
   Visando elucidar parte desta pergunta, foram amostrados regenerantes com altura até 30 cm a partir de sub-parcelas de 1x1m sob três diferentes tratamentos. Sendo eles, sob a copa de espécies nativas presentes na área de estudo (10 parcelas), sob a copa da espécie asiática _Talipariti tiliacium_ comumente conhecida como algodoeiro-da-praia (15 parcelas) e sob a copa da espécie _Syzygium cumini_, o jamelão (15 parcelas).  
 
-### Análise de Dados 
+### ANÁLISE DE DADOS
+
+```{r echo=FALSE}
+library(dunn.test)
+files.path <- list.files(path = "data",
+                         pattern = ".csv",
+                         full.names = TRUE)
+
+files.path
+regeneracao <- read.csv2(files.path)
+ab_reg <- c(regeneracao$Contg_reg)
+trat <- factor(rep(1:3,c(15,10, 15)),labels = c("Jamelao", "Nativas", "Hibisco"))
+
+kruskal.test(ab_reg,trat)
+dunn.test(ab_reg, trat, method ="bonferroni")
+```
+
   
 
 
 ## RESULTADOS 
 
-
-
-! [](Figs/figura01.png)
-
+![Boxplot da distribuição dos indivíduos regenerantes sob os diferentes tratamentos: Hibisco da praia (T._tiliacium_), Jamelão (S._cumini_) e espécies nativas](Figs/figura01.png)
 
 
 
