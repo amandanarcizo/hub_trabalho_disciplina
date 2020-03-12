@@ -3,7 +3,7 @@
 ## Inserindo Tabelas ##
 ## Carregando pacotes:
 library(dunn.test)
-
+library(pgirmess)
 
 # criamos objeto listando os arquivos que tem na pasta
 files.path <- list.files(path = "data",
@@ -69,6 +69,8 @@ ab_reg <- c(regeneracao$Contg_reg)
 trat <- factor(rep(1:3,c(15,10, 15)),labels = c("Jamelao", "Nativas", "Hibisco"))
 
 kruskal.test(ab_reg,trat)
-kruskalmc(ab_reg,trat)
+# o p-valor foi menor que 0.05, dessa forma ha diferenca significativa entre os tratamentos, para saber melhor entre quais é necessário o teste a posteriori:
+
 dunn.test(ab_reg, trat, method ="bonferroni")
-# o p-valor foi menor que 0.05, dessa forma nao ha diferenca significativa
+
+
