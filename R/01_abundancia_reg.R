@@ -58,6 +58,10 @@ jamelao <- c(regeneracao$Contg_reg[1:15])
 nativa <- c(regeneracao$Contg_reg[15:25])
 hibisco <- c(regeneracao$Contg_reg[26:40])
 
+summary(jamelao)
+summary(nativa)
+summary(hibisco)
+
 # testando a normalidade dos dados (se for menor que 0.05 não é normal)
 shapiro.test(jamelao)
 shapiro.test(nativa)

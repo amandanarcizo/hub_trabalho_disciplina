@@ -45,7 +45,18 @@ restinga?
   Visando elucidar parte desta pergunta, foram amostrados regenerantes com altura até 30 cm a partir de sub-parcelas de 1x1m sob três diferentes tratamentos. Sendo eles, sob a copa de espécies nativas presentes na área de estudo (10 parcelas), sob a copa da espécie asiática _Talipariti tiliacium_ comumente conhecida como algodoeiro-da-praia (15 parcelas) e sob a copa da espécie _Syzygium cumini_, o jamelão (15 parcelas).  
 
 ### ANÁLISE DE DADOS
+ 
+  Primeiramente para poder comparar se havia diferenca significante entre a abundancia de regenerantes nos diferentes tratamentos foi necessário checar primeiramente a normalidade dos dados com o uso do teste de Shapiro-Wilkis. 
+Uma vez que os dados não correspoderam as premissas de normalidade em sua totalidade, para comparar os tratamentos foi o utilizado a utilizado a análise não-paramétrica de Kruskal-Wallis e a análise de Bonferroni como teste a posteriori. 
 
+## RESULTADOS 
+   
+   A distruibuição da abundância de indivíduos regenerantes com altura menor do que 30 cm nos tratamentos está ilustrada no gráfico de boxplot (Figura 1). Sob a copa de espécies nativas a abundância de regenerantes teve mediana = 180 e média = 217.6, diferentemente dos tratamentos sob a copa de espécies exóticas S.cumini e T.tiliacium que tiveram mediana = 4 e médias = 6.2 e 4.8, respectivamente. 
+   
+![Boxplot da distribuição dos indivíduos regenerantes sob os diferentes tratamentos: Hibisco da praia (T._tiliacium_), Jamelão (S._cumini_) e espécies nativas](Figs/figura01.png)
+
+ Há diferença significativa entre a abundância de indivíduos sob diferentes tratamentos (H= 22.132, p < 0.05). Quando comparados par a par, os tratamentos sob a copa de S.cumini e T.tiliacium não diferiram significativamente (p > 0.05), porém ambos tratamentos quando comparados com a abundância de regenerantes sob a copa de espécies nativas apresentaram diferença significativa assim como era o esperado. 
+ 
 ```{r echo=FALSE}
 library(dunn.test)
 files.path <- list.files(path = "data",
@@ -60,14 +71,6 @@ trat <- factor(rep(1:3,c(15,10, 15)),labels = c("Jamelao", "Nativas", "Hibisco")
 kruskal.test(ab_reg,trat)
 dunn.test(ab_reg, trat, method ="bonferroni")
 ```
-
-  
-
-
-## RESULTADOS 
-
-![Boxplot da distribuição dos indivíduos regenerantes sob os diferentes tratamentos: Hibisco da praia (T._tiliacium_), Jamelão (S._cumini_) e espécies nativas](Figs/figura01.png)
-
 
 
 ## REFERÊNCIAS
