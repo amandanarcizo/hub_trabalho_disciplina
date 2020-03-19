@@ -1,7 +1,7 @@
 ---
 title: "Relatorio Final - Projetos de Análise de Dados Usando R"
 author: "Amanda Narcizo"
-date: "05/03/2020"
+date: "19/03/2020"
 output:
   word_document: 
     reference_docx: Docs/template_intro.docx
@@ -53,7 +53,8 @@ Uma vez que os dados não correspoderam as premissas de normalidade em sua total
    
    A distruibuição da abundância de indivíduos regenerantes com altura menor do que 30 cm nos tratamentos está ilustrada no gráfico de boxplot (Figura 1). Sob a copa de espécies nativas a abundância de regenerantes teve mediana = 180 e média = 217.6, diferentemente dos tratamentos sob a copa de espécies exóticas S.cumini e T.tiliacium que tiveram mediana = 4 e médias = 6.2 e 4.8, respectivamente. 
    
-![Boxplot da distribuição dos indivíduos regenerantes sob os diferentes tratamentos: Hibisco da praia (T._tiliacium_), Jamelão (S._cumini_) e espécies nativas](Figs/figura01.png)
+![Boxplot da distribuição dos indivíduos regenerantes sob os diferentes tratamentos: Hibisco da praia (T._tiliacium_), Jamelão (S._cumini_) e espécies nativas](Output/figura01.png)
+
 
  Há diferença significativa entre a abundância de indivíduos sob diferentes tratamentos (H= 22.132, p < 0.05). Quando comparados par a par, os tratamentos sob a copa de S.cumini e T.tiliacium não diferiram significativamente (p > 0.05), porém ambos tratamentos quando comparados com a abundância de regenerantes sob a copa de espécies nativas apresentaram diferença significativa assim como era o esperado. 
  

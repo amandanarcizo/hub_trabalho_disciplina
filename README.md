@@ -4,7 +4,7 @@
 ## Resultados esperados: É esperado que haja diferença significativa entre a abundância de regenerantes abaixo da copa de espécies nativas e a abundância de regenerantes abaixo da copa das espécies exóticas (jamelão e hibisco da praia).
 
 Passos do script:
-1. Criando a tabela em formato csv. com a coluna tratamentos e a columa contagem de regenerantes; 
+1. Criando a tabela em formato csv. com a coluna tratamentos e a coluna de abundancia de regenerantes; 
 2. Criamos objeto listando os arquivos que tem na pasta data; 
 3. Agora temos os enderecos de cada arquivo csv e podemos criar o objeto mais tranquilamente; 
 4. Para entender melhor o objeto/planilha vamos usar as funcoes head, dim e summary para inspecionar a planilha;
